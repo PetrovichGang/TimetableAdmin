@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Box, Drawer, SwipeableDrawer } from '@material-ui/core';
-import { useState } from 'react';
 import styles from '../../style/base.module.css'
 import SidebarItem from './SidebarItem';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
@@ -23,7 +22,7 @@ const Sidebar : React.FunctionComponent<ISidebarProps> = ({open, setOpen}) => {
     const route = useLocation().pathname;
 
 	const drawerContent = <div className={styles.sidebarWrapper}>
-        <img src="/logo.svg" className={styles.logo}/>
+        <img src="/logo.svg" alt="Logo" className={styles.logo}/>
         <SidebarItem 
             title="Главная"
             icon={<HomeRoundedIcon/>}

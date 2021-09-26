@@ -14,4 +14,9 @@ const daysSchema = {
     SAT: daySchema
 }
 
-export default daysSchema
+const timetableDefaults = {
+    Group: "",
+    Days: daysSchema
+}
+
+export default timetableDefaults

@@ -1,0 +1,11 @@
+.categoryTitle {
+    margin: 16px 0 !important
+}
+.groupButton {
+    margin-left: 4px !important;
+}
+.inputGap {
+    display: flex;
+    gap: 16px;
+    margin: 24px 0;
+}

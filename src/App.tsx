@@ -5,6 +5,7 @@ import { IconButton, Typography } from "@mui/material";
 import styles from './style/base.module.css'
 import { useState } from "react";
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import PageTimetable from "./pages/PageTimetable";
 
 const routeNames: any = {
 	'/timetable': 'Расписание',
@@ -33,7 +34,7 @@ export default function App() {
 				</div>
 
 				<Route exact path="/" component={EditMainTT} />
-				<Route exact path="/timetable" component={EditMainTT} />
+				<Route exact path="/timetable" component={PageTimetable} />
 				<Route exact path="/changes" component={EditMainTT} />
 				<Route exact path="/autofill" component={EditMainTT} />
 			</div>
