@@ -11,7 +11,7 @@ interface IDialogInfoProps {
     onClose: () => void
 }
 
-const DialogInfo : React.FC<IDialogInfoProps> = ({content, onClose}) => 
+const DialogInfo : React.FunctionComponent<IDialogInfoProps> = ({content, onClose}) => 
    (
     <div>
       <Dialog open={content !== null} onClose={onClose} scroll='paper'>

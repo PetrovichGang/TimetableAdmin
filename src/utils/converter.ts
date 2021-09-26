@@ -37,11 +37,4 @@ const toAPIFormat = (items: any, group: string): any => {
     return {Group: group, Days: days}
 }
 
-/*
-{ pair: '1a', mon: '', tue: '' }
-{ pair: '1b', mon: '', tue: '' }
-{ pair: '2a', mon: '', tue: '' }
-
-*/
-
 export default { toTableFormat, toAPIFormat }

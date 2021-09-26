@@ -16,7 +16,7 @@ interface IGroupItemProps {
     onSelect: (group: any) => void
 }
 
-const GroupItem : React.FC<IGroupItemProps> = ({ group, selected, onSelect }) => {
+const GroupItem : React.FunctionComponent<IGroupItemProps> = ({ group, selected, onSelect }) => {
     const handleClick = () => onSelect(group)
     return (
         <ListItemButton onClick={handleClick} selected={ selected }>
@@ -28,7 +28,7 @@ const GroupItem : React.FC<IGroupItemProps> = ({ group, selected, onSelect }) =>
     )
 }
 
-const GroupList : React.FC<IGroupListProps> = ({ groupList, groupSelected, onSelect }) => {
+const GroupList : React.FunctionComponent<IGroupListProps> = ({ groupList, groupSelected, onSelect }) => {
     return (
         <List>
             { groupList.map(group => 

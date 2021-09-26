@@ -58,7 +58,7 @@ const columns: GridColDef[] = [
     }
 ]
 
-const TimeTableEditor : React.FC<ITimeTableEditorProps> = ({ groupTimetable, onChange }) => {
+const TimeTableEditor : React.FunctionComponent<ITimeTableEditorProps> = ({ groupTimetable, onChange }) => {
     const handleEditRowsModelChange = (params: any) =>
       onChange(params.id, params.field, params.value)
 
