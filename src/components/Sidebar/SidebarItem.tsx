@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ButtonBase, Typography } from '@material-ui/core'
+import { ButtonBase, Typography } from '@mui/material'
 import { Link } from "react-router-dom";
 import styles from '../../style/base.module.css'
 

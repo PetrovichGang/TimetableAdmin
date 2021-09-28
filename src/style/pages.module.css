@@ -6,6 +6,64 @@
 }
 .inputGap {
     display: flex;
-    gap: 16px;
-    margin: 24px 0;
+    margin: 4px 0;
+}
+.inputGap:nth-child(2) {
+    margin-top: 8px;
+}
+.inputGap:last-child {
+    margin-bottom: 24px;
+}
+.inputGap input {
+    width: 50%;
+    padding: 10px;
+    border: 0;
+    border-bottom: 2px solid #0000;
+    background: #f7f7f7;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+.inputGap input:focus {
+    border-bottom: 2px solid #1976d2;
+}
+.inputGap p {
+    padding: 8px 12px 8px 0;
+}
+
+.inputGap input:nth-child(2) {
+    border-right: 1px #ccc solid;
+}
+
+.dialogEditableTitle {
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin: 0 8px;
+    border: 0;
+    border-bottom: 2px solid #0000;
+    padding: 8px 0 6px;
+    width: 100%;
+}
+.dialogEditableTitle:focus {
+    border-bottom: 2px solid #1976d2;
+    background: #f2f2f2;
+    padding: 8px 10px 6px;
+}
+.topHeader {
+    display: flex;
+    padding-left: 32px;
+    margin-top: 8px;
+}
+.topHeader * {
+    width: 50%;
+}
+.dayName {
+    
+    padding-left: 32px;
+}
+.dialogTitleWrap {
+    display: flex;
+    align-items: center;
+    padding: 8px !important;
 }

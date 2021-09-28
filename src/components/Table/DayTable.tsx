@@ -1,51 +1,53 @@
 import * as React from 'react'
-import { Box, TextField, Typography } from '@material-ui/core'
+import { Box, Typography } from '@mui/material'
+import { Field } from 'formik'
 import styles from '../../style/pages.module.css'
-import { isConstructorDeclaration } from 'typescript'
 
 interface IDayTableProps {
     day: string
     dayProp: string
-    timetable: any
-    setTimetable: (value: any) => void
 }
 
 interface IDayABProps {
     dayProp: string
     pairNum: number
-    timetable: any
-    setTimetable: (value: any) => void
 }
 
-const DayAB: React.FunctionComponent<IDayABProps> = ({ dayProp, pairNum, timetable, setTimetable }) => {
-    //return <div/>
-    return timetable.Days === undefined ? <span>Загружаемся...</span> : (
-        <div className={styles.inputGap}>
-        <TextField
-            defaultValue={timetable.Days[dayProp].a[pairNum] || ""}
-            label={`${pairNum}-я пара (четная/все)`}
-            size="small"
-        />
-        <TextField
-            value={timetable.Days[dayProp].b[pairNum] || ""}
-            onChange={e => {
-                timetable.Days[dayProp].b[pairNum] = e.target.value
-                setTimetable(timetable)
-            }}
-            label={`${pairNum}-я пара (нечетная)`}
-            size="small"
-        />
-        </div>
-    )
-}
+const DayAB: React.FunctionComponent<IDayABProps> = ({ dayProp, pairNum }) =>
+    <div className={styles.inputGap}>
+        <Typography>{pairNum}</Typography>
+        <Field name={`Days.${dayProp}.a.p${pairNum}`} />
+        <Field name={`Days.${dayProp}.b.p${pairNum}`} />
+    </div>
 
-const DayTable: React.FunctionComponent<IDayTableProps> = ({ day, dayProp, timetable, setTimetable }) => {
+const DayTable: React.FunctionComponent<IDayTableProps> = ({ day, dayProp }) => {
     return (
         <Box>
-            <Typography variant='h6'>{day}</Typography>
-            { [1,2,3,4].map(n => <DayAB dayProp={dayProp} pairNum={n} timetable={timetable} setTimetable={setTimetable} />) }
+            <Typography variant='h6' className={styles.dayName}>{day}</Typography>
+            <div className={styles.topHeader}>
+                <Typography variant='caption'>Четная неделя/Все недели</Typography>
+                <Typography variant='caption'>Нечетная неделя</Typography>
+            </div>
+            { [1,2,3,4].map(n => <DayAB key={n} dayProp={dayProp} pairNum={n} />) }
         </Box>
     )
 }
 
 export default DayTable
+
+/*<Autocomplete freeSolo fullWidth
+                value={formik.values.Days[dayProp].a['p'+pairNum]}
+                onChange={(e, value) => formik.setFieldValue(aField, value)}
+                options={autocompletePlaceholder}
+                renderInput={(params) => <TextField {...params} label={`${pairNum}-я пара (четная/все)`} />}
+            />
+            <Autocomplete freeSolo fullWidth
+                id={bField}
+                value={formik.values.Days[dayProp].b['p'+pairNum]}
+                onChange={(e, value) => formik.setFieldValue(bField, value)}
+                options={autocompletePlaceholder}
+                renderInput={(params) => <TextField {...params} label={`${pairNum}-я пара (нечетная)`} />}
+            />
+    const aField = `Days.${dayProp}.a.p${pairNum}`
+    const bField = `Days.${dayProp}.b.p${pairNum}`
+const autocompletePlaceholder = ['suck', 'dick']*/

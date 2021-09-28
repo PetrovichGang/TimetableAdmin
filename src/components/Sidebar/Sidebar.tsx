@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Drawer, SwipeableDrawer } from '@material-ui/core';
+import { Box, Drawer, SwipeableDrawer } from '@mui/material';
 import styles from '../../style/base.module.css'
 import SidebarItem from './SidebarItem';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Typography, Box, Button } from '@mui/material'
+import { Typography, Box, Button, LinearProgress } from '@mui/material'
 import styles from '../style/pages.module.css'
 import EditTimetableDialog from '../components/Table/EditTimetableDialog';
 var _ = require('lodash');
@@ -12,15 +12,6 @@ const PageTimetable: React.FunctionComponent = () => {
 	const [groupList, setGroupList] = useState([])
 	const [groupSelected, setGroupSelected] = useState("")
 	const [open, setOpen] = useState(false)
-
-	const writeChanges = (tt: any) => {
-		console.log(JSON.stringify(tt))
-		fetch('http://localhost:8000/api/groups', {
-		method: 'POST',
-		body: JSON.stringify(tt)
-		})
-	}
-
 	useEffect(() => {
 		fetch("http://localhost:8000/api/groups")
 			.then(res => res.json())
@@ -37,16 +28,24 @@ const PageTimetable: React.FunctionComponent = () => {
 
 	return (
 		<Box>
-			{groupList.map((arr: string[]) =>
-				<Box>
-					<Typography variant='h5' className={styles.categoryTitle}>{(arr[0] as string).substr(0,1)}</Typography>
-					{ arr.map(group => <Button
-						className={styles.groupButton}
-						variant="outlined" size="small"
-						onClick={() => {setGroupSelected(group);setOpen(true)}}
-						>{group}</Button>) }
-				</Box>
-			)}
+			{groupList.length === 0 ? <LinearProgress /> : groupList.map((arr: string[]) => {
+				const litera = (arr[0] as string).substr(0,1)
+				return (
+					<Box key={litera}>
+						<Typography variant='h5' className={styles.categoryTitle}>{litera}</Typography>
+						{ arr.map(group => (
+							<Button
+								className={styles.groupButton}
+								variant="outlined" size="small"
+								onClick={() => {
+									setGroupSelected(group);
+									setOpen(true)
+								}}
+								key={group}>{group}</Button>
+						))}
+					</Box>
+				)
+			})}
 			<EditTimetableDialog group={groupSelected} open={open} setOpen={setOpen} />
 		</Box>
 	)
