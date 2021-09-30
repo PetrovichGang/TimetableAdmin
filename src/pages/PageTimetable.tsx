@@ -13,7 +13,7 @@ const PageTimetable: React.FunctionComponent = () => {
 	const [groupSelected, setGroupSelected] = useState("")
 	const [open, setOpen] = useState(false)
 	useEffect(() => {
-		fetch("http://localhost:8000/api/groups")
+		fetch("/api/groups")
 			.then(res => res.json())
 			.then(
 				(result) => {

@@ -48,7 +48,7 @@ const EditTimetableDialog: React.FunctionComponent<IEditTimetableDialogProps> = 
     useEffect(() => {
         if (group !== "") {
             setLoading(true)
-            fetch(`http://localhost:8000/api/timetable?group=${group}`)
+            fetch(`/api/timetable?group=${group}`)
                 .then(res => res.json())
                 .then(
                     (result) => {
@@ -66,7 +66,7 @@ const EditTimetableDialog: React.FunctionComponent<IEditTimetableDialogProps> = 
     return (
     <Formik
         onSubmit={(values, {setSubmitting}) => {
-            fetch('http://localhost:8000/api/groups', {
+            fetch('/api/groups', {
                 method: 'POST',
                 body: JSON.stringify(values)
             })
