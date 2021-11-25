@@ -12,6 +12,7 @@ import KeyboardBackspaceRoundedIcon from '@mui/icons-material/KeyboardBackspaceR
 import FileDownloadRoundedIcon from '@mui/icons-material/FileDownloadRounded';
 import RotateLeftRoundedIcon from '@mui/icons-material/RotateLeftRounded';
 import { IconButton, LinearProgress } from '@mui/material';
+import API_URL from '../../config';
 var _ = require('lodash');
 
 interface IEditTimetableDialogProps {
@@ -48,7 +49,7 @@ const EditTimetableDialog: React.FunctionComponent<IEditTimetableDialogProps> = 
     useEffect(() => {
         if (group !== "") {
             setLoading(true)
-            fetch(`/api/timetable?group=${group}`)
+            fetch(`${API_URL}/timetable?group=${group}`)
                 .then(res => res.json())
                 .then(
                     (result) => {
@@ -66,7 +67,7 @@ const EditTimetableDialog: React.FunctionComponent<IEditTimetableDialogProps> = 
     return (
     <Formik
         onSubmit={(values, {setSubmitting}) => {
-            fetch('/api/groups', {
+            fetch(`${API_URL}/groups`, {
                 method: 'POST',
                 body: JSON.stringify(values)
             })

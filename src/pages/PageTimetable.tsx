@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Typography, Box, Button, LinearProgress } from '@mui/material'
 import styles from '../style/pages.module.css'
 import EditTimetableDialog from '../components/Table/EditTimetableDialog';
+import API_URL from '../config';
 var _ = require('lodash');
 
 declare global {
@@ -13,7 +14,7 @@ const PageTimetable: React.FunctionComponent = () => {
 	const [groupSelected, setGroupSelected] = useState("")
 	const [open, setOpen] = useState(false)
 	useEffect(() => {
-		fetch("/api/groups")
+		fetch(`${API_URL}/groups`)
 			.then(res => res.json())
 			.then(
 				(result) => {
