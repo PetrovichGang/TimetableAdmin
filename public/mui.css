@@ -1,0 +1,12 @@
+.MuiCard-root {
+    border-radius: 12px !important;
+}
+
+.MuiPaper-elevation.MuiCard-root {
+    box-shadow: rgb(50 50 93 / 13%) 0px 13px 27px -5px, rgb(0 0 0 / 15%) 0px 8px 16px -8px !important;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

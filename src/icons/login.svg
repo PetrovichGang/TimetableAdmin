@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="116px" height="128px" viewBox="0 0 232 256">
+<style type="text/css">
+	line,path{fill:none;stroke:#aaa;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+
+
+	.ttmain {
+		    stroke-dasharray: 410 1000;
+    		stroke-dashoffset: 78;
+		animation: ttmain 1.25s cubic-bezier(.5, 0.25, 0.25, 1) forwards 2.55s;
+	}
+
+	line {
+		stroke-dasharray: 92;
+		transform: translate(-27.5px, 0px);
+		animation: line .5s cubic-bezier(0.25, 0.1, 0.96, 0.31)  forwards 2s;
+	}
+
+	.g {
+		stroke-dasharray: 92;
+		transform: translate(-27.5px, 0px);
+		animation: line .5s cubic-bezier(0.25, 0.1, 0.27, 1.41) forwards 2s;
+	}
+	
+	g {
+		animation: move .5s cubic-bezier(0.25, 0.1, 0.27, 2) forwards 2s;
+	}
+
+	@keyframes line {
+		100% { stroke-dashoffset: 92;  }
+	}
+
+	@keyframes move {
+		100% { transform: translate(16px, 0px);  }
+	}
+
+	@keyframes ttmain {
+		50% {
+		    stroke-dasharray: 100 1000;}
+		100% { stroke-dasharray: 410 1000; stroke-dashoffset: -560; }
+	}
+</style>
+<g style="animation-delay:2.2s">
+	<line style="animation-delay:2.2s" x1="88.491" y1="160.27" x2="144.491" y2="160.27"/>
+</g>
+		<g style="animation-delay:2.1s ">
+	<line style="animation-delay:2.1s " x1="88.491" y1="128.27" x2="144.491" y2="128.27"/>
+</g>
+		<g>
+	<line x1="88.491" y1="96.27" x2="144.491" y2="96.27"/>
+</g>
+<path class="g" d="M104.491,192.27v-16c0-8.837,7.163-16,16-16l33,0"/>
+<path  class="g" d="M104.491,160.27v-16c0-8.837,7.163-16,16-16l33,0"/>
+<path  class="g" d="M104.491,128.27v-16c0-8.837,7.163-16,16-16l33,0"/>
+
+	<path class="ttmain" d="M108.166,192.27h33c8.837,0,16-7.163,16-16v-80c0-8.837-7.163-16-16-16h-48c-8.837,0-16,7.163-16,16   c0,32,0,64,0,96c-0.193,1.739-0.325,4.19,0,7.074c1.483,13.144,11.384,25.649,24.226,31.133c16.072,6.864,34.357,1.71,45.757-9.199   c13.88-13.283,13.353-31.081,13.218-34.013c-0.116-2.519-1.416-22.91-19.497-35.115c-18.54-12.515-38.522-5.487-40.467-4.765   c-0.748,0.278-1.261,0.64-1.728,0.895c-2.793,1.532-15.473,8.878-20.221,23.892c-0.497,1.57-1.958,6.316-1.779,11.827   c0.516,15.807,14.605,40,40,40c21.937,0,40-18.053,40-40c0-21.943-18.057-40-40-40c0-19.667,0-39.333,0-59c-8,0-16,0-24,0   c14.491,0,14.491,0,24,0c0-10.4,0-26.6,0-37c-12.9,0-25.8,0-38.7,0"/>
+
+</svg>

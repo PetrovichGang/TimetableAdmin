@@ -16,8 +16,8 @@ interface IDayABProps {
 const DayAB: React.FunctionComponent<IDayABProps> = ({ dayProp, pairNum }) =>
     <div className={styles.inputGap}>
         <Typography>{pairNum}</Typography>
-        <Field name={`Days.${dayProp}.a.p${pairNum}`} />
-        <Field name={`Days.${dayProp}.b.p${pairNum}`} />
+        <Field name={`Days.${dayProp}.a.p${pairNum}`} component="textarea" />
+        <Field name={`Days.${dayProp}.b.p${pairNum}`} component="textarea" />
     </div>
 
 const DayTable: React.FunctionComponent<IDayTableProps> = ({ day, dayProp }) => {

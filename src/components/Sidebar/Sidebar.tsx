@@ -7,6 +7,7 @@ import AutoFillRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
 import ChangesRoundedIcon from '@mui/icons-material/PublishedWithChangesRounded';
 import TimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
 import { useLocation } from 'react-router-dom';
+import { ReactComponent as StatisticsIcon } from '../../icons/stat.svg';
 
 const drawerWidth = 240
 interface ISidebarProps {
@@ -43,6 +44,11 @@ const Sidebar : React.FunctionComponent<ISidebarProps> = ({open, setOpen}) => {
             icon={<AutoFillRoundedIcon/>}
             link="/autofill"
             selected={route === "/autofill"} />
+        <SidebarItem 
+            title="Статистика"
+            icon={<StatisticsIcon/>}
+            link="/statistics"
+            selected={route === "/statistics"} />
     </div>
 
     return (

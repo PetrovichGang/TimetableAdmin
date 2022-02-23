@@ -6,21 +6,26 @@ import styles from './style/base.module.css'
 import { useState } from "react";
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import PageTimetable from "./pages/PageTimetable";
+import PageStatistics from "./pages/PageStatistics";
+import PageLogin from "./pages/PageLogin";
 
 const routeNames: any = {
 	'/timetable': 'Расписание',
 	'/changes': 'Изменения',
-	'/autofill': 'Автозамена'
+	'/autofill': 'Автозамена',
+	'/statistics': 'Статистика',
 };
+
+const login = !false
 
 export default function App() {
 	const [sidebarOpen, setSidebarOpen] = useState(false)
     const menuClick = () => setSidebarOpen(true)
     const routeName = routeNames[useLocation().pathname] || 'Главная';
-	return (
-		<div style={{ display: 'flex' }}>
+	return login ? (
+		<div className={styles.bg} style={{ display: 'flex' }}>
 			<Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
-			<div style={{ display: 'flex', flexDirection: 'column', padding: 24, boxSizing: 'border-box', width: '100%' }}>
+			<div className={styles.content}>
 				<div>
 					<IconButton
 						onClick={menuClick}
@@ -37,7 +42,8 @@ export default function App() {
 				<Route exact path="/timetable" component={PageTimetable} />
 				<Route exact path="/changes" component={EditMainTT} />
 				<Route exact path="/autofill" component={EditMainTT} />
+				<Route exact path="/statistics" component={PageStatistics} />
 			</div>
 		</div>
-	)
+	) : <PageLogin />
   }

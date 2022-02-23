@@ -12,13 +12,16 @@ const theme = createTheme({
   },
   typography: {
     h1: {
-      fontFamily: '"Montserrat", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontFamily: '"Euclid Circular B", "Roboto", "Helvetica", "Arial", sans-serif',
       fontSize: '2rem',
-      fontWeight: 600,
-    },
-    body2: {
-      fontFamily: '"Montserrat", "Roboto", "Helvetica", "Arial", sans-serif',
+      letterSpacing: '0.75px',
       fontWeight: 500,
+    },
+    caption: {
+      fontFamily: '"Euclid Circular B", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontWeight: 500,
+      letterSpacing: '0.5px',
+      fontSize: '0.85rem',
     },
   },
 })

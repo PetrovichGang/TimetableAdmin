@@ -1,8 +1,12 @@
 .categoryTitle {
-    margin: 16px 0 !important
+    margin: 24px 0  12px !important;
+    font-size: 24px !important;
 }
 .groupButton {
-    margin-left: 4px !important;
+    margin-bottom: 8px !important;
+    border-width: 2px !important;
+    font-size: 15px;
+    padding: 4px 14px 
 }
 .inputGap {
     display: flex;
@@ -14,7 +18,7 @@
 .inputGap:last-child {
     margin-bottom: 24px;
 }
-.inputGap input {
+.inputGap textarea {
     width: 50%;
     padding: 10px;
     border: 0;
@@ -22,15 +26,18 @@
     background: #f7f7f7;
     outline: none;
     font-family: 'Roboto', sans-serif;
+    resize: vertical;
+    height: 48px;
+    transition: all 0.2s ease;
 }
-.inputGap input:focus {
+.inputGap textarea:focus {
     border-bottom: 2px solid #1976d2;
 }
 .inputGap p {
     padding: 8px 12px 8px 0;
 }
 
-.inputGap input:nth-child(2) {
+.inputGap textarea:nth-child(2) {
     border-right: 1px #ccc solid;
 }
 
@@ -44,6 +51,7 @@
     border-bottom: 2px solid #0000;
     padding: 8px 0 6px;
     width: 100%;
+    transition: all 0.2s ease;
 }
 .dialogEditableTitle:focus {
     border-bottom: 2px solid #1976d2;
@@ -66,4 +74,32 @@
     display: flex;
     align-items: center;
     padding: 8px !important;
+}
+
+.boxLine {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.boxLineWrap {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.boxLineWrapStatistics {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .boxLineWrapStatistics {
+        margin: -16px;
+    }
+    .boxLineWrap {
+        flex-direction: column;
+    }
 }

@@ -16,7 +16,7 @@ const SidebarItem : React.FunctionComponent<ISidebarItemProps> = ({title, icon, 
         <Link to={link} className={styles.sidebarLink}>
             <ButtonBase className={`${styles.sidebarItem} ${selected ? styles.selected : ''}`}>
                 {icon}
-                <Typography variant='body2'>{title}</Typography>
+                <Typography variant='caption'>{title}</Typography>
             </ButtonBase>
         </Link>
     )

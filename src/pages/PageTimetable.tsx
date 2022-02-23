@@ -5,10 +5,6 @@ import EditTimetableDialog from '../components/Table/EditTimetableDialog';
 import API_URL from '../config';
 var _ = require('lodash');
 
-declare global {
-  interface Window { dbg: any; }
-}
-
 const PageTimetable: React.FunctionComponent = () => {
 	const [groupList, setGroupList] = useState([])
 	const [groupSelected, setGroupSelected] = useState("")
@@ -28,12 +24,12 @@ const PageTimetable: React.FunctionComponent = () => {
 	}, [])
 
 	return (
-		<Box>
+		<Box className={styles.boxLineWrap}>
 			{groupList.length === 0 ? <LinearProgress /> : groupList.map((arr: string[]) => {
 				const litera = (arr[0] as string).substr(0,1)
 				return (
-					<Box key={litera}>
-						<Typography variant='h5' className={styles.categoryTitle}>{litera}</Typography>
+					<Box key={litera} className={styles.boxLine}>
+						<Typography variant='h1' className={styles.categoryTitle}>{litera}</Typography>
 						{ arr.map(group => (
 							<Button
 								className={styles.groupButton}
