@@ -1,13 +1,15 @@
 import EditMainTT from "./pages/EditMainTT"
 import { Route, useLocation } from "react-router-dom"
 import Sidebar from "./components/Sidebar/Sidebar"
-import { IconButton, Typography } from "@mui/material";
+import { CircularProgress, Container, IconButton, Typography } from "@mui/material";
 import styles from './style/base.module.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import PageTimetable from "./pages/PageTimetable";
 import PageStatistics from "./pages/PageStatistics";
 import PageLogin from "./pages/PageLogin";
+import { TelegramLoginUser } from "./schemas/TelegramLoginUser";
+import API_URL from "./config";
 
 const routeNames: any = {
 	'/timetable': 'Расписание',
@@ -16,15 +18,37 @@ const routeNames: any = {
 	'/statistics': 'Статистика',
 };
 
-const login = !false
 
 export default function App() {
 	const [sidebarOpen, setSidebarOpen] = useState(false)
     const menuClick = () => setSidebarOpen(true)
     const routeName = routeNames[useLocation().pathname] || 'Главная';
-	return login ? (
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(null as (string | null))
+	const [authUser, setAuthUser] = useState(null as (TelegramLoginUser | null))
+
+    useEffect(() => {
+		if (authUser == null)
+        fetch(`${API_URL}/auth/info`, { credentials: 'include' })
+			.then(i => i.json())
+			.then((result) => {
+				if (!("detail" in result)) {
+					setAuthUser(result as TelegramLoginUser)
+				}
+				setLoading(false)
+			})
+	})
+
+	return loading ?
+	<div style={{ height: '100vh',
+	display: 'flex',
+	background: 'url("bg.svg") 0px center / 216px, linear-gradient(135deg, rgb(255, 255, 255), rgb(221, 224, 234))',
+	justifyContent: 'center',
+	alignItems: 'center' }}><CircularProgress /></div>
+		
+	: (authUser != null ? (
 		<div className={styles.bg} style={{ display: 'flex' }}>
-			<Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
+			<Sidebar open={sidebarOpen} setOpen={setSidebarOpen} authUser={authUser} />
 			<div className={styles.content}>
 				<div>
 					<IconButton
@@ -45,5 +69,5 @@ export default function App() {
 				<Route exact path="/statistics" component={PageStatistics} />
 			</div>
 		</div>
-	) : <PageLogin />
+	) : <PageLogin setAuthUser={setAuthUser} />)
   }

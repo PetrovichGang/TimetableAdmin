@@ -36,6 +36,9 @@
     color: var(--light);
     overflow-x: hidden;
     border-right: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .sidebarItem:hover {
@@ -95,4 +98,10 @@
     text-transform: none;
     background: #e2e2e2;
     color: #000;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
 }

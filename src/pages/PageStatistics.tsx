@@ -63,7 +63,7 @@ const PageStatistics: React.FunctionComponent = () => {
 
     useEffect(() => {
         ChartJS.register(TimeScale, ...registerables)
-        fetch(`${API_URL}/vk/statistics_all`)
+        fetch(`${API_URL}/vk/statistics_all`, { credentials: 'include' })
             .then(res => res.json())
             .then(
                 (result: StatisticsJSON) => {

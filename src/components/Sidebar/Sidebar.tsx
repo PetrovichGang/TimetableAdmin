@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Drawer, SwipeableDrawer } from '@mui/material';
+import { Box, ButtonBase, Drawer, SwipeableDrawer, Typography } from '@mui/material';
 import styles from '../../style/base.module.css'
 import SidebarItem from './SidebarItem';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
@@ -8,14 +8,16 @@ import ChangesRoundedIcon from '@mui/icons-material/PublishedWithChangesRounded'
 import TimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
 import { useLocation } from 'react-router-dom';
 import { ReactComponent as StatisticsIcon } from '../../icons/stat.svg';
+import { TelegramLoginUser } from '../../schemas/TelegramLoginUser';
 
 const drawerWidth = 240
 interface ISidebarProps {
     open: boolean
+    authUser: TelegramLoginUser
     setOpen: (value: boolean) => void
 }
 
-const Sidebar : React.FunctionComponent<ISidebarProps> = ({open, setOpen}) => {
+const Sidebar : React.FunctionComponent<ISidebarProps> = ({open, authUser, setOpen}) => {
     const widthStyle = {'& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }}
     const sidebarOpen = () => setOpen(true)
     const sidebarClose = () => setOpen(false)
@@ -23,6 +25,7 @@ const Sidebar : React.FunctionComponent<ISidebarProps> = ({open, setOpen}) => {
     const route = useLocation().pathname;
 
 	const drawerContent = <div className={styles.sidebarWrapper}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
         <img src="/logo.svg" alt="Logo" className={styles.logo}/>
         <SidebarItem 
             title="Главная"
@@ -49,6 +52,16 @@ const Sidebar : React.FunctionComponent<ISidebarProps> = ({open, setOpen}) => {
             icon={<StatisticsIcon/>}
             link="/statistics"
             selected={route === "/statistics"} />
+            </div>
+
+            <ButtonBase className={styles.sidebarItem}
+            style={{ marginTop: 'auto' }}>
+                <img src={authUser.photo_url} style={{
+                    width: '24px',
+                    borderRadius: '24px',
+                }} />
+                <Typography variant='caption'>{authUser.username}</Typography>
+            </ButtonBase>
     </div>
 
     return (

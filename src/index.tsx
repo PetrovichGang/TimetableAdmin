@@ -23,6 +23,12 @@ const theme = createTheme({
       letterSpacing: '0.5px',
       fontSize: '0.85rem',
     },
+    h2: {
+      fontFamily: '"Euclid Circular B", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontWeight: 500,
+      letterSpacing: '0.5px',
+      fontSize: '1.25rem',
+    },
   },
 })
 
